@@ -1,0 +1,115 @@
+---
+title: "Some fancy title: followed by some more text"
+author: Jozef Rivest
+university: University of Michigan
+date: last-modified
+email: jrivest@umich.edu
+github: https://github.com/jozef
+logo-right: true
+format:
+  quarto-poster-template-pdf: default
+
+execute:
+  warning: false
+  error: false
+  message: false
+  echo: false
+---
+
+::: column
+
+## A block title
+
+Some block contents, followed by a diagram, followed by a dummy paragraph.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies
+eget libero ac ullamcorper. Integer et euismod ante. Aenean vestibulum
+lobortis augue, ut lobortis turpis rhoncus sed.
+
+## A block containing a list
+
+Nam vulputate nunc felis, non condimentum lacus porta ultrices.
+
+- **Mauris tempor** risus nulla, sed ornare
+- **Libero tincidunt** a duis congue vitae
+- **Dui ac pretium** morbi justo neque, ullamcorper
+
+Eget augue porta, bibendum venenatis tortor.
+
+## A highlighted block {.alert}
+
+This block catches your eye, so **important stuff** should probably go here.
+
+## You can also add some pretty graphs
+
+```{r}
+#| fig-width: 20
+#| fig-height: 10
+library(palmerpenguins)
+library(tidyverse)
+
+dat <- penguins
+
+ggplot(
+  dat,
+  aes(
+    x = body_mass_g,
+    flipper_length_mm,
+    col = species,
+    fill = species,
+    shapes = species
+  )
+) +
+  geom_point() +
+  geom_smooth(method = lm) +
+  geom_smooth(method = lm, aes(group = 1), color = "black") +
+  theme_bw()
+```
+:::
+
+::: column
+
+## A highlighted block containing some math {.example}
+
+A different kind of highlighted block.
+
+$$
+\int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}
+$$
+
+Interdum et malesuada fames $\{1, 4, 9, \ldots\}$ ac ante ipsum primis in
+faucibus.
+
+### A heading inside a block
+
+Praesent consectetur mi $x^2 + y^2$ metus, nec vestibulum justo viverra nec.
+
+## Nullam vel erat at velit convallis laoreet
+
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+inceptos himenaeos.
+
+:::
+
+::: column
+
+## Results
+
+Aliquam sit amet urna quis tellus scelerisque congue diam.
+
+| First column | Second | Third   |  Fourth  |
+|:-------------|-------:|--------:|:--------:|
+| Foo          |  13.37 | 384,394 | $\alpha$ |
+| Bar          |   2.17 |   1,392 | $\beta$  |
+| Baz          |   3.14 |  83,742 | $\delta$ |
+
+: A table caption.
+
+Donec quis posuere ligula. Nunc feugiat elit a mi malesuada consequat.
+
+## Conclusion
+
+Proin auctor ante in augue tincidunt tempor. Aenean at velit vel dolor
+blandit molestie.
+
+:::

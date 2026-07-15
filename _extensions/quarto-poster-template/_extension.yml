@@ -1,0 +1,15 @@
+title: Quarto-poster-template
+author: Jozef Rivest
+version: 1.0.0
+quarto-required: ">=1.8.0"
+contributes:
+  formats:
+    pdf:
+      template: poster.tex
+      filters:
+        - poster.lua
+      keep-tex: true
+      format-resources:
+        - beamerthemegemini.sty
+        - beamercolorthemegemini.sty
+        - beamercolorthememsu.sty

@@ -1,0 +1,115 @@
+% Unofficial Umich Poster template.
+% A fork of the MSU template https://www.overleaf.com/latex/templates/an-unofficial-poster-template-for-michigan-state-university/wnymbgpxnnwd
+% which is a fork of https://www.overleaf.com/latex/templates/an-unofficial-poster-template-for-new-york-university/krgqtqmzdqhg
+% which is a fork of https://github.com/anishathalye/gemini
+% also refer to https://github.com/k4rtik/uchicago-poster
+
+\documentclass[final]{beamer}
+
+% ====================
+% Packages
+% ====================
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{luainputenc}
+\usepackage{lmodern}
+\usepackage[size=custom, width=122,height=91, scale=1.2]{beamerposter}
+\usetheme{gemini}
+\usecolortheme{msu}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{calc}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14}
+\usepackage{anyfontsize}
+
+% Support for pandoc-generated content (highlighting, tightlist, etc.)
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+% Image sizing macro used by recent pandoc (\pandocbounded).
+\makeatletter
+\newsavebox\pandoc@box
+\providecommand*\pandocbounded[1]{%
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi%
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox\pandoc@box%
+  \fi%
+}
+\makeatother
+
+% ====================
+% Lengths
+% ====================
+
+% If you have N columns, choose \sepwidth and \colwidth such that
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.025\paperwidth}
+\setlength{\colwidth}{0.3\paperwidth}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+
+% ====================
+% Title
+% ====================
+
+\title{$title$}
+
+$if(author)$
+\author{$for(author)$$author$$sep$, $endfor$}
+$endif$
+
+$if(university)$
+\institute[shortinst]{$university$}
+$endif$
+
+% ====================
+% Footer (optional)
+% ====================
+
+$if(footer)$
+\footercontent{$footer$}
+$else$
+\footercontent{
+  \href{$if(github)$$github$$else$https://github.com$endif$}{$if(github)$$github$$else$Github: https://github.com$endif$} \hfill
+  Poster Session \hfill
+  \href{mailto:$if(email)$$email$$else$youremail@umich.edu$endif$}{$if(email)$$email$$else$youremail@umich.edu$endif$}}
+$endif$
+
+% ====================
+% Logo (optional)
+% ====================
+
+$if(logo-right)$
+\logoright{\includegraphics[height=5cm]{_extensions/quarto-poster-template/logos/blockM.png}}
+$endif$
+$if(logo-left)$
+\logoleft{\includegraphics[height=5cm]{_extensions/quarto-poster-template/logos/blockM.png}}
+$endif$
+
+% ====================
+% Body
+% ====================
+
+\begin{document}
+
+\begin{frame}[t,fragile]
+	\begin{columns}[t]
+
+		$body$
+
+		\separatorcolumn
+	\end{columns}
+\end{frame}
+
+\end{document}
