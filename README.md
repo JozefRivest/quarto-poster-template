@@ -1,12 +1,13 @@
 # Quarto-poster-template Format
 
-[Quarto](https://quarto.org/) is the successor of `RMarkdown` developed by
+[Quarto](https://quarto.org/) is the successor to `RMarkdown` developed by
 Posit, the same company behind `RStudio`. It offers amazing functionalities
 and nice integration with `R` and Python.
 
 ## Installing
 
-To use the template
+To use the template run the following command in your terminal inside the
+working directory
 
 ```bash
 quarto use template JozefRivest/quarto-poster-template
