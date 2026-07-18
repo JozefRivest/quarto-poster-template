@@ -4,7 +4,7 @@ author: Jozef Rivest
 university: University of Michigan
 date: last-modified
 email: jrivest@umich.edu
-github: https://github.com/jozef
+github: https://github.com/JozefRivest
 logo-right: true
 format:
   quarto-poster-template-pdf: default
